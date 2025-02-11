@@ -42,9 +42,14 @@ test.describe("register tests", () => {
   test("register with valid data", async ({ page }) => {
     await registerPage.heading.waitFor();
     await expect(registerPage.heading).toHaveText(HEADINGS["REGISTER"]);
-
-    registerPage.register(username, email, password);
-
+    //Turn on event listener
+    const responsePromise = await page.waitForResponse(/register*/);
+    await registerPage.register(username, email, password);
+    //Wait for response
+    const response = await responsePromise;
+    const responseJSON = await response.json();
+    //Assert response status
+    expect(await responseJSON.status).toBe("Sucess");
     await page.waitForURL(URLS["DASHBOARD"]);
     await expect(page).toHaveURL(URLS["DASHBOARD"]);
   });
