@@ -1,6 +1,5 @@
 import { LoginPage } from "../../pom/modules/ui/loginPage";
-import { LoginPage } from "../../pom/modules/ui/loginPage";
-import { RegisterPage } from "./registerPage";
+import { RegisterPage } from "../../pom/modules/ui/registerPage";
 
 export class Header {
   constructor(page) {
@@ -30,7 +29,7 @@ export class Header {
     );
   }
 
-  async appeareanceChangeLogin(page) {
+  async appeareanceChangeRegister(page) {
     const registerPage = new RegisterPage();
     await registerPage.register(username, email, password);
     await page.registerPageRedirect.toBeHidden();
