@@ -1,13 +1,18 @@
 import { test, expect } from "@playwright/test";
 import { HEADINGS, URLS, utils, VALID_LOGIN_PAYLOAD } from "../../fixtures";
 import { LoginPage } from "../../pom/modules/ui/loginPage";
+import { Header } from "../../pom/modules/ui/header";
+import { Footer } from "../../pom/modules/ui/footer";
 
 test.describe("login tests", () => {
   let loginPage;
+  let footer;
+  let header;
 
   test.beforeEach("visit the login page", async ({ page }) => {
     loginPage = new LoginPage(page);
-
+    footer = new Footer(page);
+    header = new Header(page);
     await page.goto(URLS["LOGIN"]);
   });
 
@@ -116,10 +121,14 @@ test.describe("login tests", () => {
     await expect(loginPage.emailInput).toBeEmpty();
   });
 
-  test("Expect form with all elements to be in viewport", async () => {
+  test("Expect form with all elements to be in viewport", async ({}) => {
     await expect(page.locator("form")).toBeInViewport();
     await expect(page.locator("form >> input").nth(0)).toBeInViewport();
     await expect(page.locator("form >> input").nth(1)).toBeInViewport();
     await expect(page.locator("form >> button")).toBeInViewport();
+  });
+
+  test("Expect element to be visible", async ({}) => {
+    await expect(page.cogwheel).toBeVisible();
   });
 });

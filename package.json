@@ -1,6 +1,5 @@
 {
-  "name": "playwright-qa2",
-  "type": "module",
+  "name": "playwright1",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
@@ -9,15 +8,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/filip-n91/playwright-qa2.git"
+    "url": "git+https://github.com/mldvnv/playwright1"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/filip-n91/playwright-qa2/issues"
+    "url": "https://github.com/mldvnv/playwright1/issues"
   },
-  "homepage": "https://github.com/filip-n91/playwright-qa2#readme",
+  "homepage": "https://github.com/mldvnv/playwright1#readme",
   "description": "",
   "devDependencies": {
     "@playwright/test": "^1.50.0",
