@@ -87,16 +87,10 @@ test.describe("register tests", () => {
   });
 
   test("Expect element to have URL", async ({}) => {
-    await expect(header.registerPageRedirect).toHaveURL(
-      "https://automaticityacademy.ngrok.app/register"
-    );
-    await expect(header.loginPageRedirect).toHaveURL(
-      "https://automaticityacademy.ngrok.app/login"
-    );
-    await expect(header.dashboard).toHaveURL(
-      "https://automaticityacademy.ngrok.app/dashboard"
-    );
-    await expect(footer.companySite).toHaveURL("https://www.automaticity.rs/");
+    await expect(header.registerPageRedirect).toHaveURL(REGISTER);
+    await expect(header.loginPageRedirect).toHaveURL(LOGIN);
+    await expect(header.dashboard).toHaveURL(DASHBOARD);
+    await expect(footer.companySite).toHaveURL(Automaticity);
   });
 
   test("Expect element to have text", async ({}) => {

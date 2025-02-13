@@ -1,6 +1,3 @@
-import { RegisterPage } from "../../pom/modules/ui/registerPage";
-import { LoginPage } from "../../pom/modules/ui/loginPage";
-
 export class Header {
   constructor(page) {
     this.page = page;
@@ -10,36 +7,10 @@ export class Header {
     this.cogwheel = page.locator(".md:ml-4 sm:ml-2  h-14 w-14 py-1");
     this.registerPageRedirect = page.locator('text ="Register"');
     this.loginPageRedirect = page.locator("#loginBtn");
-  }
-
-  async appeareanceChangeLogin(page) {
-    const loginPage = new LoginPage();
-    loginPage.login(
-      VALID_LOGIN_PAYLOAD["EMAIL"],
-      VALID_LOGIN_PAYLOAD["PASSWORD"]
+    this.header = page.locator(
+      ".text-m bg-gray-300 border-2 flex justify-between align-items-center"
     );
-    await page.registerPageRedirect.toBeHidden();
-    await page.loginPageRedirect.toBeHidden();
-
-    this.cart = page.locator(
-      ".inline-flex items-center py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-primary hover:text-gray-600 focus:outline-none transition ease-in-out duration-150 p-button p-component"
-    );
-    this.dropDown = page.locator(
-      ".inline-flex items-center py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-primary hover:text-gray-600 focus:outline-none transition ease-in-out duration-150 p-button p-component"
-    );
-  }
-
-  async appeareanceChangeRegister(page) {
-    const registerPage = new RegisterPage();
-    await registerPage.register(username, email, password);
-    await page.registerPageRedirect.toBeHidden();
-    await page.loginPageRedirect.toBeHidden();
-
-    this.cart = page.locator(
-      ".inline-flex items-center py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-primary hover:text-gray-600 focus:outline-none transition ease-in-out duration-150 p-button p-component"
-    );
-    this.dropDown = page.locator(
-      ".inline-flex items-center py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-primary hover:text-gray-600 focus:outline-none transition ease-in-out duration-150 p-button p-component"
-    );
+    this.cartButton = this.header.locator("button").first();
+    this.dropDownButton = this.header.locator("button").last();
   }
 }
