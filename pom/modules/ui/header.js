@@ -9,7 +9,7 @@ export class Header {
     );
     this.cogwheel = page.locator(".md:ml-4 sm:ml-2  h-14 w-14 py-1");
     this.registerPageRedirect = page.locator('text ="Register"');
-    this.loginPageRedirect = page.locator(".loginBtn");
+    this.loginPageRedirect = page.locator("#loginBtn");
   }
 
   async appeareanceChangeLogin(page) {
